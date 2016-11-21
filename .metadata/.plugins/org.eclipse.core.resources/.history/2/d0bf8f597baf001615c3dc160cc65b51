@@ -1,13 +1,11 @@
 package fracCalc;
 
 public class FracCalc {
-import java.util.*;
+
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
-    	Scanner userInput = new Scanner(System.in);
-    	String inputEquation = userInput.next();
-    	String secondPart = produceAnswer(inputEquation);
+    	
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -21,16 +19,7 @@ import java.util.*;
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-    	for(int i = 0; i < input.length(); i++){
-        	if(input.substring(i, i+1) == "+" || input.substring(i, i+1) == "-"
-        			|| input.substring(i, i+1) == "*"){
-        		String secPart = "";
-        		for(int j = i; j < input.length(); j++){
-        			secPart += input.substring(j, j+1);
-        		}
-        		return secPart;
-        	}
-        }
+        
         return "";
     }
 
