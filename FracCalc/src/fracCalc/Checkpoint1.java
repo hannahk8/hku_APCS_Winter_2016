@@ -1,14 +1,17 @@
 package fracCalc;
 
+import java.util.Scanner;
+
 public class Checkpoint1
 {
-	import java.util.*;
     public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	Scanner userInput = new Scanner(System.in);
+    	System.out.println("Enter an equation: ");
     	String inputEquation = userInput.next();
     	String secondPart = produceAnswer(inputEquation);
+    	System.out.println(secondPart);
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -22,7 +25,8 @@ public class Checkpoint1
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-        for(int i = 0; i < input.length(); i++){
+    	
+    	for(int i = 0; i < input.length(); i++){
         	if(input.substring(i, i+1) == "+" || input.substring(i, i+1) == "-"
         			|| input.substring(i, i+1) == "*"){
         		String secPart = "";
@@ -32,8 +36,8 @@ public class Checkpoint1
         		return secPart;
         	}
         }
-        return "";
+        return "asdfasdfasdfasdfa";
     }
-
+}
     // TODO: Fill in the space below with any helper methods that you think you will need
 
