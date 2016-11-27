@@ -10,10 +10,10 @@ public class Checkpoint1
         // TODO: Read the input from the user and call produceAnswer with an equation
     	Scanner userInput = new Scanner(System.in);
     	System.out.println("Enter an equation: ");
-    	String inputEquation = userInput.next();
-    	System.out.println(inputEquation);
-    	String[] secondPart = produceAnswer(inputEquation);
-    	System.out.println(Arrays.toString(secondPart));
+    	String inputEquation = userInput.nextLine();
+    	
+    	String secondPart = produceAnswer(inputEquation);
+    	System.out.println(secondPart);
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -24,32 +24,24 @@ public class Checkpoint1
     //        
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
-    public static String[] produceAnswer(String input)
+    public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
     	String[] noSpaces = input.split(" ");
-		return noSpaces;
-
-    	//for(int i = 0; i < noSpaces.length; i++){
-    		//if(noSpaces[i].equals("+ ")){
-    			//return noSpaces[i + 1];
-    		//}
-    	//}
-    	//return "no";
+    	String firstPart = "";
+    	String operator = "";
+    	String secPart = "";
     	
-    	/*for(int i = 0; i < input.length(); i++){
-        	if(input.substring(i, i+1).equals("+") || input.substring(i, i+1).equals("-")
-        			|| input.substring(i, i+1).equals("*")){
-        		return "yey";
-        		//String secPart = "";
-        		//for(int j = i+1; j < input.length(); j++){
-        			//secPart += input.substring(j, j+1);
-        		//}
-        		//return secPart;
-        	}
-        }
-    	
-        return "asdfasdfasdfasdfa";*/
+    	for(int i = 0; i < noSpaces.length; i++){
+    		if(noSpaces[i].equals("+") || noSpaces[i].equals("-") || noSpaces[i].equals("*")
+    				|| noSpaces[i].equals("/")){
+    			firstPart = noSpaces[0];
+    			operator = noSpaces[i];
+    			secPart = noSpaces[i + 1];
+    			return secPart;
+    		}
+    	}
+    	return "error";
     }
 }
     // TODO: Fill in the space below with any helper methods that you think you will need
