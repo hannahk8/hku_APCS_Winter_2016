@@ -1,5 +1,6 @@
 package fracCalc;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Checkpoint1
@@ -10,8 +11,9 @@ public class Checkpoint1
     	Scanner userInput = new Scanner(System.in);
     	System.out.println("Enter an equation: ");
     	String inputEquation = userInput.next();
-    	String secondPart = produceAnswer(inputEquation);
-    	System.out.println(secondPart);
+    	System.out.println(inputEquation);
+    	String[] secondPart = produceAnswer(inputEquation);
+    	System.out.println(Arrays.toString(secondPart));
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -22,21 +24,32 @@ public class Checkpoint1
     //        
     // The function should return the result of the fraction after it has been calculated
     //      e.g. return ==> "1_1/4"
-    public static String produceAnswer(String input)
+    public static String[] produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
+    	String[] noSpaces = input.split(" ");
+		return noSpaces;
+
+    	//for(int i = 0; i < noSpaces.length; i++){
+    		//if(noSpaces[i].equals("+ ")){
+    			//return noSpaces[i + 1];
+    		//}
+    	//}
+    	//return "no";
     	
-    	for(int i = 0; i < input.length(); i++){
-        	if(input.substring(i, i+1) == "+" || input.substring(i, i+1) == "-"
-        			|| input.substring(i, i+1) == "*"){
-        		String secPart = "";
-        		for(int j = i; j < input.length(); j++){
-        			secPart += input.substring(j, j+1);
-        		}
-        		return secPart;
+    	/*for(int i = 0; i < input.length(); i++){
+        	if(input.substring(i, i+1).equals("+") || input.substring(i, i+1).equals("-")
+        			|| input.substring(i, i+1).equals("*")){
+        		return "yey";
+        		//String secPart = "";
+        		//for(int j = i+1; j < input.length(); j++){
+        			//secPart += input.substring(j, j+1);
+        		//}
+        		//return secPart;
         	}
         }
-        return "asdfasdfasdfasdfa";
+    	
+        return "asdfasdfasdfasdfa";*/
     }
 }
     // TODO: Fill in the space below with any helper methods that you think you will need
