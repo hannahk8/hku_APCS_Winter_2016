@@ -1,13 +1,18 @@
 package fracCalc;
 
+import java.util.Arrays;
+import java.util.Scanner;
+
 public class FracCalc {
-import java.util.*;
-    public static void main(String[] args) 
+	public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
     	Scanner userInput = new Scanner(System.in);
-    	String inputEquation = userInput.next();
+    	System.out.println("Enter an equation: ");
+    	String inputEquation = userInput.nextLine();
+    	
     	String secondPart = produceAnswer(inputEquation);
+    	System.out.println(secondPart);
     }
     
     // ** IMPORTANT ** DO NOT DELETE THIS FUNCTION.  This function will be used to test your code
@@ -21,17 +26,21 @@ import java.util.*;
     public static String produceAnswer(String input)
     { 
         // TODO: Implement this function to produce the solution to the input
-    	for(int i = 0; i < input.length(); i++){
-        	if(input.substring(i, i+1) == "+" || input.substring(i, i+1) == "-"
-        			|| input.substring(i, i+1) == "*"){
-        		String secPart = "";
-        		for(int j = i; j < input.length(); j++){
-        			secPart += input.substring(j, j+1);
-        		}
-        		return secPart;
-        	}
-        }
-        return "";
+    	String[] noSpaces = input.split(" ");
+    	String firstPart = "";
+    	String operator = "";
+    	String secPart = "";
+    	
+    	for(int i = 0; i < noSpaces.length; i++){
+    		if(noSpaces[i].equals("+") || noSpaces[i].equals("-") || noSpaces[i].equals("*")
+    				|| noSpaces[i].equals("/")){
+    			firstPart = noSpaces[0];
+    			operator = noSpaces[i];
+    			secPart = noSpaces[i + 1];
+    			return secPart;
+    		}
+    	}
+    	return "error";
     }
 
     // TODO: Fill in the space below with any helper methods that you think you will need
