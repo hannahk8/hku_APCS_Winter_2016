@@ -50,7 +50,8 @@ public class FracCalc {
     	//perform add or multiply based on operator
     	if(operator.equals("+")  || operator.equals("-")){
     		int[] sumAnswer = addFrac(firstPartImproper, secPartImproper, operator);
-    		String mixedAnswer = toMixedNum(sumAnswer);
+    		int[] simplifiedFrac = simplifyFrac(sumAnswer);
+    		String mixedAnswer = toMixedNum(simplifiedFrac);
     		return mixedAnswer;
     	}
     	if(operator.equals("*")  || operator.equals("/")){
@@ -175,6 +176,13 @@ public class FracCalc {
     	//return Integer.toString(product[0]) + "/" + Integer.toString(product[1]);
 	}
     
+    public static int[] simplifyFrac(int[] improperFracArray){
+    	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
+    	improperFracArray[0] /= gcf;
+    	improperFracArray[1] /= gcf;
+    	return improperFracArray;
+    }
+    
     public static String toMixedNum(int[] improperFracAnswer){
     	int wholeNum = improperFracAnswer[0]/improperFracAnswer[1];
     	int numerator = improperFracAnswer[0] % improperFracAnswer[1];
@@ -187,7 +195,7 @@ public class FracCalc {
     		denominator *= -1;
     	}
     	
-    	if(numerator == 0){
+    	if(numerator == 0 || denominator == 0){
     		return Integer.toString(wholeNum);
     	}
     	if(wholeNum == 0){

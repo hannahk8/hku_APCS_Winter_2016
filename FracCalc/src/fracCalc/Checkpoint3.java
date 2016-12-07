@@ -187,7 +187,7 @@ public class Checkpoint3 {
     		denominator *= -1;
     	}
     	
-    	if(numerator == 0){
+    	if(numerator == 0 || denominator == 0){
     		return Integer.toString(wholeNum);
     	}
     	if(wholeNum == 0){
