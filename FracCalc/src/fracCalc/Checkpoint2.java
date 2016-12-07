@@ -8,12 +8,14 @@ public class Checkpoint2 {
         // TODO: Read the input from the user and call produceAnswer with an equation
 		Scanner userInput = new Scanner(System.in);
     	String inputEquation = "";
+    	System.out.println("Enter an equation: ");
+		inputEquation = userInput.nextLine();
     	
     	while(!inputEquation.equals("quit")){
-    		System.out.println("Enter an equation: ");
-    		inputEquation = userInput.nextLine();
     		String secondPart = produceAnswer(inputEquation);
         	System.out.println(secondPart);
+    		System.out.println("Enter an equation: ");
+    		inputEquation = userInput.nextLine();
     	}
     }
     
@@ -27,14 +29,14 @@ public class Checkpoint2 {
     	String secPart = "";
     	
     	//splits equation into first part, operator and second part
-    	for(int i = 0; i < noSpaces.length; i++){
-    		if(noSpaces[i].equals("+") || noSpaces[i].equals("-") || noSpaces[i].equals("*")
-    				|| noSpaces[i].equals("/")){
+    	//for(int i = 0; i < noSpaces.length; i++){
+    		//if(noSpaces[i].equals("+") || noSpaces[i].equals("-") || noSpaces[i].equals("*")
+    			//	|| noSpaces[i].equals("/")){
     			firstPart = noSpaces[0];
-    			operator = noSpaces[i];
-    			secPart = noSpaces[i + 1];
-    		}
-    	}
+    			operator = noSpaces[1];
+    			secPart = noSpaces[2];
+    		//}
+    	//}
     	
     	String firstPartParsed = parseFraction(firstPart);
     	String secPartParsed = parseFraction(secPart);
