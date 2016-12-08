@@ -56,7 +56,8 @@ public class FracCalc {
     	}
     	if(operator.equals("*")  || operator.equals("/")){
     		int[] productAnswer = multiplyFrac(firstPartImproper, secPartImproper, operator);
-    		String mixedAnswer = toMixedNum(productAnswer);
+    		int[] simplifiedFrac = simplifyFrac(productAnswer);
+    		String mixedAnswer = toMixedNum(simplifiedFrac);
     		return mixedAnswer;
     	}
     	return "wrong";
@@ -177,9 +178,19 @@ public class FracCalc {
 	}
     
     public static int[] simplifyFrac(int[] improperFracArray){
-    	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
-    	improperFracArray[0] /= gcf;
-    	improperFracArray[1] /= gcf;
+    	int numerator = improperFracArray[0];
+    	int denominator = improperFracArray[1];
+    	int gcf;
+    	for(int i = numerator; i >=1; i --){
+    		for(int j = denominator; j >= 1; j --){
+    			if(numerator % j == 0 && denominator % i == 0 && i == j){
+    				gcf = i;
+    		    	improperFracArray[0] /= gcf;
+    		    	improperFracArray[1] /= gcf;
+    			}
+    		}
+    	}
+    	
     	return improperFracArray;
     }
     

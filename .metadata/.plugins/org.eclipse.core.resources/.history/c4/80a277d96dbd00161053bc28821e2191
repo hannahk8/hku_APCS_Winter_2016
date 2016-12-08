@@ -184,6 +184,7 @@ public class FinalFracCalc {
     		for(int j = denominator; j >= 1; j --){
     			if(numerator % j == 0 && denominator % i == 0 && i == j){
     				gcf = i;
+    				System.out.println(gcf);
     		    	improperFracArray[0] /= gcf;
     		    	improperFracArray[1] /= gcf;
     			}
@@ -195,6 +196,7 @@ public class FinalFracCalc {
     	
     	
     	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
+    	System.out.println(gcf);
     	improperFracArray[0] /= gcf;
     	improperFracArray[1] /= gcf;
     	return improperFracArray;

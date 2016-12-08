@@ -177,7 +177,7 @@ public class FinalFracCalc {
 	}
     
     public static int[] simplifyFrac(int[] improperFracArray){
-    	/*int numerator = improperFracArray[0];
+    	int numerator = improperFracArray[0];
     	int denominator = improperFracArray[1];
     	int gcf;
     	for(int i = numerator; i >=1; i --){
@@ -190,14 +190,15 @@ public class FinalFracCalc {
     		}
     	}
     	
-    	return improperFracArray;*/
+    	return improperFracArray;
 
     	
     	
-    	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
+    	/*int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
+    	System.out.println(gcf);
     	improperFracArray[0] /= gcf;
     	improperFracArray[1] /= gcf;
-    	return improperFracArray;
+    	return improperFracArray;*/
     }
     
     public static String toMixedNum(int[] improperFracAnswer){

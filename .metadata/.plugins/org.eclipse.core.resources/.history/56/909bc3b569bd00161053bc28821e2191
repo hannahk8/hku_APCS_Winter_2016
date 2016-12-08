@@ -1,8 +1,9 @@
 package fracCalc;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
-public class FinalFracCalc {
+public class FracCalc {
 	public static void main(String[] args) 
     {
         // TODO: Read the input from the user and call produceAnswer with an equation
@@ -55,8 +56,7 @@ public class FinalFracCalc {
     	}
     	if(operator.equals("*")  || operator.equals("/")){
     		int[] productAnswer = multiplyFrac(firstPartImproper, secPartImproper, operator);
-    		int[] simplifiedFrac = simplifyFrac(productAnswer);
-    		String mixedAnswer = toMixedNum(simplifiedFrac);
+    		String mixedAnswer = toMixedNum(productAnswer);
     		return mixedAnswer;
     	}
     	return "wrong";
@@ -177,23 +177,6 @@ public class FinalFracCalc {
 	}
     
     public static int[] simplifyFrac(int[] improperFracArray){
-    	/*int numerator = improperFracArray[0];
-    	int denominator = improperFracArray[1];
-    	int gcf;
-    	for(int i = numerator; i >=1; i --){
-    		for(int j = denominator; j >= 1; j --){
-    			if(numerator % j == 0 && denominator % i == 0 && i == j){
-    				gcf = i;
-    		    	improperFracArray[0] /= gcf;
-    		    	improperFracArray[1] /= gcf;
-    			}
-    		}
-    	}
-    	
-    	return improperFracArray;*/
-
-    	
-    	
     	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
     	improperFracArray[0] /= gcf;
     	improperFracArray[1] /= gcf;
@@ -221,4 +204,6 @@ public class FinalFracCalc {
     	return Integer.toString(wholeNum) + "_" + Integer.toString(numerator) + "/" +
     			Integer.toString(denominator);
     }
+    // TODO: Fill in the space below with any helper methods that you think you will need
+    
 }
