@@ -1,5 +1,6 @@
 package fracCalc;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class FinalFracCalc {
@@ -126,7 +127,7 @@ public class FinalFracCalc {
     		improperFraction[0] = (whole*denominator) + numerator;
         	improperFraction[1] = denominator;
     	}
-    	
+
     	return improperFraction;                                                                                                         
     }
     
@@ -158,7 +159,6 @@ public class FinalFracCalc {
     	}
     	
     	return sum;
-    	//return Integer.toString(sum[0]) + "/" + Integer.toString(sum[1]);
     }
     
     
@@ -173,31 +173,46 @@ public class FinalFracCalc {
         	product[1] = firstFracToMultiply[1]*secFracToMultiply[0];
     	}
     	return product;
-    	//return Integer.toString(product[0]) + "/" + Integer.toString(product[1]);
 	}
     
     public static int[] simplifyFrac(int[] improperFracArray){
-    	/*int numerator = improperFracArray[0];
-    	int denominator = improperFracArray[1];
-    	int gcf;
-    	for(int i = numerator; i >=1; i --){
-    		for(int j = denominator; j >= 1; j --){
-    			if(numerator % j == 0 && denominator % i == 0 && i == j){
-    				gcf = i;
-    		    	improperFracArray[0] /= gcf;
-    		    	improperFracArray[1] /= gcf;
+    	double numerator = (double)(improperFracArray[0]);
+    	double denominator = (double)(improperFracArray[1]);
+    	double gcf;
+    	boolean numeratorIsNegative = false;
+    	boolean denominatorIsNegative = false;
+
+    	if(numerator < 0.0){
+    		numeratorIsNegative = true;
+    		numerator *= -1;
+    	}
+    	if(denominator < 0.0){
+    		denominatorIsNegative = true;
+    		denominator *= -1;
+    	}
+    	
+    	for(double i = numerator; i > 1.0; i --){
+    		for(double j = denominator; j > 1.0; j --){
+    			if(numerator % j == 0.0 && denominator % i == 0.0 && i == j){
+    		    	gcf = i;
+    		    	numerator /= gcf;
+    		    	denominator /= gcf;
     			}
     		}
     	}
     	
-    	return improperFracArray;*/
+    	if(numeratorIsNegative == true){
+    		numerator *= -1;
+    	}
+    	if(denominatorIsNegative == true){
+    		denominator *= -1;
+    	}
+    	
+    	improperFracArray[0] = (int)(numerator);
+    	improperFracArray[1] = (int)(denominator);
 
-    	
-    	
-    	int gcf = Calculate.gcf(improperFracArray[0], improperFracArray[1]);
-    	improperFracArray[0] /= gcf;
-    	improperFracArray[1] /= gcf;
     	return improperFracArray;
+
     }
     
     public static String toMixedNum(int[] improperFracAnswer){
@@ -205,7 +220,7 @@ public class FinalFracCalc {
     	int numerator = improperFracAnswer[0] % improperFracAnswer[1];
     	int denominator = improperFracAnswer[1];
     	////
-    	if(numerator < 0){
+    	if(wholeNum != 0 && numerator < 0){
     		numerator *= -1;
     	}
     	if(denominator < 0){
